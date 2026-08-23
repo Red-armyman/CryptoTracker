@@ -1,0 +1,14 @@
+syntax = "proto3";
+package cryptotracker.protobuf;
+
+option java_package = "ru.my.cryptotracker.prefs.proto";
+option java_multiple_files = true;
+
+
+
+message PortfolioPreferences {
+  double total_balance_usd = 1;      // Общий баланс кошелька пользователя
+  bool is_balance_hidden = 2;        // Флаг скрытия баланса звездочками ***
+  string active_currency = 3;        // Выбранная фиатная валюта отображения (USD, EUR, RUB)
+  int64 last_sync_timestamp = 4;      // Таймстамп последнего успешного пуллинга
+}
