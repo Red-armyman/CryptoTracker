@@ -21,22 +21,14 @@ import ru.my.cryptotracker.model.security.EncryptedPreferencesManager
 import ru.my.cryptotracker.di.IODispatcher
 import ru.my.cryptotracker.ui.screens.portfolio.reducer.PortfolioReducer
 import ru.my.cryptotracker.ui.util.UiText
-import ru.my.cryptotracker.usecase.portfolio.AddTransactionUseCase
-import ru.my.cryptotracker.usecase.portfolio.ClearPortfolioUseCase
-import ru.my.cryptotracker.usecase.portfolio.DeleteAssetUseCase
-import ru.my.cryptotracker.usecase.portfolio.DeleteTransactionUseCase
 import ru.my.cryptotracker.usecase.portfolio.GetPortfolioOverviewUseCase
-import ru.my.cryptotracker.usecase.portfolio.ToggleBalanceVisibilityUseCase
+import ru.my.cryptotracker.usecase.portfolio.PortfolioUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class PortfolioViewModel @Inject constructor(
     getPortfolioOverviewUseCase: GetPortfolioOverviewUseCase,
-    private val addTransactionUseCase: AddTransactionUseCase,
-    private val deleteTransactionUseCase: DeleteTransactionUseCase,
-    private val clearPortfolioUseCase: ClearPortfolioUseCase,
-    private val deleteAssetUseCase: DeleteAssetUseCase,
-    private val toggleBalanceVisibilityUseCase: ToggleBalanceVisibilityUseCase,
+    private val portfolioUseCase: PortfolioUseCase,
     securityManager: EncryptedPreferencesManager,
     @param:IODispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
@@ -93,7 +85,7 @@ class PortfolioViewModel @Inject constructor(
             is PortfolioEvent.AddTransaction -> {
                 viewModelScope.launch(ioDispatcher) {
                     try {
-                        addTransactionUseCase(
+                        portfolioUseCase.addTransaction(
                             coinId = event.coinId,
                             amount = event.amount,
                             purchasePrice = event.purchasePrice,
@@ -109,7 +101,7 @@ class PortfolioViewModel @Inject constructor(
             is PortfolioEvent.DeleteTransaction -> {
                 viewModelScope.launch(ioDispatcher) {
                     try {
-                        deleteTransactionUseCase(event.transactionId)
+                        portfolioUseCase.deleteTransaction(event.transactionId)
                         _effectChannel.trySend(PortfolioEffect.ShowSnackbar(UiText.StringResource(R.string.snackbar_transaction_deleted)))
                     } catch (_: Exception) {
                         _effectChannel.trySend(PortfolioEffect.ShowSnackbar(UiText.StringResource(R.string.snackbar_transaction_delete_error)))
@@ -124,7 +116,7 @@ class PortfolioViewModel @Inject constructor(
             is PortfolioEvent.ClearPortfolio -> {
                 viewModelScope.launch(ioDispatcher) {
                     try {
-                        clearPortfolioUseCase()
+                        portfolioUseCase.clearPortfolio()
                         _effectChannel.trySend(PortfolioEffect.ShowSnackbar(UiText.StringResource(R.string.snackbar_portfolio_cleared)))
                     } catch (_: Exception) {
                         _effectChannel.trySend(PortfolioEffect.ShowSnackbar(UiText.StringResource(R.string.snackbar_portfolio_clear_error)))
@@ -135,7 +127,7 @@ class PortfolioViewModel @Inject constructor(
             is PortfolioEvent.DeleteAsset -> {
                 viewModelScope.launch(ioDispatcher) {
                     try {
-                        deleteAssetUseCase(event.coinId)
+                        portfolioUseCase.deleteAsset(event.coinId)
                         _effectChannel.trySend(
                             PortfolioEffect.ShowSnackbar(
                                 UiText.StringResource(
@@ -153,7 +145,7 @@ class PortfolioViewModel @Inject constructor(
             is PortfolioEvent.ToggleBalanceVisibility -> {
                 viewModelScope.launch(ioDispatcher) {
                     try {
-                        toggleBalanceVisibilityUseCase()
+                        portfolioUseCase.toggleBalanceVisibility()
                     } catch (_: Exception) {
                         _effectChannel.trySend(
                             PortfolioEffect.ShowSnackbar(

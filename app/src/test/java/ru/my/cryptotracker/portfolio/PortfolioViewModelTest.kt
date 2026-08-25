@@ -20,12 +20,8 @@ import ru.my.cryptotracker.model.security.EncryptedPreferencesManager
 import ru.my.cryptotracker.prefs.proto.PortfolioPreferences
 import ru.my.cryptotracker.ui.screens.portfolio.PortfolioUiState
 import ru.my.cryptotracker.ui.screens.portfolio.PortfolioViewModel
-import ru.my.cryptotracker.usecase.portfolio.AddTransactionUseCase
-import ru.my.cryptotracker.usecase.portfolio.ClearPortfolioUseCase
-import ru.my.cryptotracker.usecase.portfolio.DeleteAssetUseCase
-import ru.my.cryptotracker.usecase.portfolio.DeleteTransactionUseCase
 import ru.my.cryptotracker.usecase.portfolio.GetPortfolioOverviewUseCase
-import ru.my.cryptotracker.usecase.portfolio.ToggleBalanceVisibilityUseCase
+import ru.my.cryptotracker.usecase.portfolio.PortfolioUseCase
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class PortfolioViewModelTest {
@@ -34,12 +30,8 @@ class PortfolioViewModelTest {
     private val testDispatcher = StandardTestDispatcher(testScheduler)
 
     private val getPortfolioOverviewUseCase: GetPortfolioOverviewUseCase = mockk()
-    private val addTransactionUseCase: AddTransactionUseCase = mockk()
-    private val deleteTransactionUseCase: DeleteTransactionUseCase = mockk()
-    private val clearPortfolioUseCase: ClearPortfolioUseCase = mockk()
-    private val deleteAssetUseCase: DeleteAssetUseCase = mockk()
-    private val toggleBalanceVisibilityUseCase: ToggleBalanceVisibilityUseCase = mockk()
     private val securityManager: EncryptedPreferencesManager = mockk()
+    private val portfolioUseCase: PortfolioUseCase = mockk()
 
     private lateinit var viewModel: PortfolioViewModel
 
@@ -78,11 +70,7 @@ class PortfolioViewModelTest {
 
             viewModel = PortfolioViewModel(
                 getPortfolioOverviewUseCase = getPortfolioOverviewUseCase,
-                addTransactionUseCase = addTransactionUseCase,
-                deleteTransactionUseCase = deleteTransactionUseCase,
-                clearPortfolioUseCase = clearPortfolioUseCase,
-                deleteAssetUseCase = deleteAssetUseCase,
-                toggleBalanceVisibilityUseCase = toggleBalanceVisibilityUseCase,
+                portfolioUseCase = portfolioUseCase,
                 securityManager = securityManager,
                 ioDispatcher = testDispatcher
             )
