@@ -1,8 +1,8 @@
 package ru.my.cryptotracker.model.repository
 
-import ru.my.cryptotracker.model.network.CryptoApiService
-import ru.my.cryptotracker.model.entities.GraphPoint
+import ru.my.cryptotracker.core.model.GraphPoint
 import ru.my.cryptotracker.model.mappers.toGraphPointsList
+import ru.my.cryptotracker.model.network.CryptoApiService
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton

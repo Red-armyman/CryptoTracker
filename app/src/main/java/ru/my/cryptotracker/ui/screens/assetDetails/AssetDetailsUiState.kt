@@ -1,7 +1,7 @@
 package ru.my.cryptotracker.ui.screens.assetDetails
 
 import kotlinx.collections.immutable.ImmutableList
-import ru.my.cryptotracker.model.entities.PortfolioTransaction
+import ru.my.cryptotracker.core.model.PortfolioTransaction
 
 sealed interface AssetDetailsUiState {
     object Loading : AssetDetailsUiState

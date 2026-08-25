@@ -1,7 +1,8 @@
 package ru.my.cryptotracker.model.mappers
 
-import ru.my.cryptotracker.model.entities.DomainAsset
-import ru.my.cryptotracker.model.entities.PortfolioTransaction
+
+import ru.my.cryptotracker.core.model.DomainAsset
+import ru.my.cryptotracker.core.model.PortfolioTransaction
 import ru.my.cryptotracker.model.database.entity.PortfolioDb
 import kotlin.collections.forEach
 

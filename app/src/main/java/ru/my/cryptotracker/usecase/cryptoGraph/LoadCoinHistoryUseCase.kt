@@ -1,7 +1,7 @@
 package ru.my.cryptotracker.usecase.cryptoGraph
 
+import ru.my.cryptotracker.core.model.GraphPoint
 import ru.my.cryptotracker.model.repository.CryptoGraphRepository
-import ru.my.cryptotracker.model.entities.GraphPoint
 import javax.inject.Inject
 
 class LoadCoinHistoryUseCase @Inject constructor(

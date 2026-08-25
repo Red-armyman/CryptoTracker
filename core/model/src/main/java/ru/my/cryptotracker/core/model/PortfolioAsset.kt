@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.model.entities
+package ru.my.cryptotracker.core.model
 
 /**
  * Результат расчёта стоимости и прибыли/убытка

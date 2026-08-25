@@ -1,8 +1,8 @@
 package ru.my.cryptotracker.usecase.assetDetails
 
 import kotlinx.coroutines.flow.Flow
+import ru.my.cryptotracker.core.model.PortfolioTransaction
 import ru.my.cryptotracker.model.repository.CryptoPortfolioRepository
-import ru.my.cryptotracker.model.entities.PortfolioTransaction
 import javax.inject.Inject
 
 /**

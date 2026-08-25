@@ -14,7 +14,9 @@ room3 {
 
 android {
     namespace = "ru.my.cryptotracker"
-    compileSdk = 36
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
         applicationId = "ru.my.cryptotracker"
@@ -22,8 +24,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -84,6 +84,7 @@ protobuf {
 }
 
 dependencies {
+    implementation(project(":core:model"))
     // Базовые Android зависимости
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -92,7 +93,6 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.kotlinx.collections.immutable)
 
-    // Твои бандлы из TOML (без дубликатов в коде)
     implementation(libs.bundles.compose.ui)
     implementation(libs.bundles.network)
     implementation(libs.bundles.coil)
@@ -106,7 +106,7 @@ dependencies {
     implementation(libs.room3)
     ksp(libs.room3.compiler)
 
-    // DataStore и безопасность (Строго через точки!)
+    // DataStore и безопасность
     implementation(libs.androidx.datastore.core)
     implementation(libs.protobuf)
     implementation(libs.google.crypto.tink)

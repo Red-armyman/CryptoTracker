@@ -1,9 +1,12 @@
-package ru.my.cryptotracker.ui.screens.cryptoDashboard
+package ru.my.cryptotracker.ui.screens.cryptoDashboard.reducer
+
+import ru.my.cryptotracker.ui.screens.cryptoDashboard.CoinsAction
+import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardUiState
 
 object CoinsReducer {
 
     /**
-     * На основе старого состояния [CryptoDashboardUiState] и действия [CoinsAction]
+     * На основе старого состояния [ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardUiState] и действия [ru.my.cryptotracker.ui.screens.cryptoDashboard.CoinsAction]
      * вычисляет новое состояние экрана, сохраняя данные при сбоях сети!
      *
      *  Reducer используется намеренно для практики MVI.

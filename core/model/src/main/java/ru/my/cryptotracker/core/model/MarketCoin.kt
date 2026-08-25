@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.model.entities
+package ru.my.cryptotracker.core.model
 
 /**
  * Доменная модель текущей рыночной информации о криптовалюте.

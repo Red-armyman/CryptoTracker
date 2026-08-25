@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.model.entities
+package ru.my.cryptotracker.core.model
 
 data class PortfolioTransaction(
     val id: Long,

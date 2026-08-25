@@ -25,6 +25,7 @@ import ru.my.cryptotracker.R
 import ru.my.cryptotracker.model.network.NetworkResult
 import ru.my.cryptotracker.di.IODispatcher
 import ru.my.cryptotracker.model.repository.CryptoDashboardRepository
+import ru.my.cryptotracker.ui.screens.cryptoDashboard.reducer.CoinsReducer
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.milliseconds
 import ru.my.cryptotracker.ui.util.UiText

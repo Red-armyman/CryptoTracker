@@ -1,6 +1,6 @@
 package ru.my.cryptotracker.model.mappers
 
-import ru.my.cryptotracker.model.entities.PortfolioAsset
+import ru.my.cryptotracker.core.model.PortfolioAsset
 import ru.my.cryptotracker.model.entities.PortfolioAssetUiModel
 
 

@@ -1,8 +1,8 @@
 package ru.my.cryptotracker.model.repository
 
 import kotlinx.coroutines.flow.Flow
-import ru.my.cryptotracker.model.entities.DomainAsset
-import ru.my.cryptotracker.model.entities.PortfolioTransaction
+import ru.my.cryptotracker.core.model.DomainAsset
+import ru.my.cryptotracker.core.model.PortfolioTransaction
 
 interface CryptoPortfolioRepository {
 

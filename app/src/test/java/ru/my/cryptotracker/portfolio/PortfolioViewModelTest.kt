@@ -13,9 +13,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
+import ru.my.cryptotracker.core.model.PortfolioOverview
 import ru.my.cryptotracker.model.entities.CoinUiModel
 import ru.my.cryptotracker.model.entities.PortfolioAssetUiModel
-import ru.my.cryptotracker.model.entities.PortfolioOverview
 import ru.my.cryptotracker.model.security.EncryptedPreferencesManager
 import ru.my.cryptotracker.prefs.proto.PortfolioPreferences
 import ru.my.cryptotracker.ui.screens.portfolio.PortfolioUiState

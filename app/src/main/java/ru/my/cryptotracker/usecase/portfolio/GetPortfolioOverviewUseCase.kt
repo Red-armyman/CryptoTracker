@@ -2,11 +2,11 @@ package ru.my.cryptotracker.usecase.portfolio
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import ru.my.cryptotracker.core.model.PortfolioAsset
+import ru.my.cryptotracker.core.model.PortfolioOverview
 import ru.my.cryptotracker.model.repository.CryptoMarketRepository
 import ru.my.cryptotracker.model.repository.CryptoPortfolioRepository
-import ru.my.cryptotracker.model.entities.PortfolioAsset
 import ru.my.cryptotracker.model.security.EncryptedPreferencesManager
-import ru.my.cryptotracker.model.entities.PortfolioOverview
 import javax.inject.Inject
 
 /**

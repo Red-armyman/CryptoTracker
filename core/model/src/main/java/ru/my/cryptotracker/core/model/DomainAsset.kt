@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.model.entities
+package ru.my.cryptotracker.core.model
 
 /**
  * Хранит чистую свернутую математику по конкретной монете.

@@ -1,8 +1,8 @@
 package ru.my.cryptotracker.model.mappers
 
-import ru.my.cryptotracker.model.entities.CoinUiModel
-import ru.my.cryptotracker.model.entities.MarketCoin
+import ru.my.cryptotracker.core.model.MarketCoin
 import ru.my.cryptotracker.model.database.entity.CoinDb
+import ru.my.cryptotracker.model.entities.CoinUiModel
 import ru.my.cryptotracker.model.network.dto.CoinDto
 
 fun CoinDb.toUiModel(): CoinUiModel {

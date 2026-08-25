@@ -4,10 +4,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
+import ru.my.cryptotracker.core.model.DomainAsset
+import ru.my.cryptotracker.core.model.PortfolioTransaction
 import ru.my.cryptotracker.model.database.CryptoDatabase
 import ru.my.cryptotracker.model.database.entity.PortfolioDb
-import ru.my.cryptotracker.model.entities.DomainAsset
-import ru.my.cryptotracker.model.entities.PortfolioTransaction
 import ru.my.cryptotracker.model.mappers.toDomainAsset
 import ru.my.cryptotracker.model.mappers.toPortfolioTransaction
 import javax.inject.Inject

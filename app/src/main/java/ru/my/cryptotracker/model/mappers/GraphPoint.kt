@@ -1,6 +1,6 @@
 package ru.my.cryptotracker.model.mappers
 
-import ru.my.cryptotracker.model.entities.GraphPoint
+import ru.my.cryptotracker.core.model.GraphPoint
 import ru.my.cryptotracker.model.entities.GraphPointUiModel
 
 fun GraphPoint.toUiModel(): GraphPointUiModel {
