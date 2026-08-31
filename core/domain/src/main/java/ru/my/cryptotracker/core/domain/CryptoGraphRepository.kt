@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.model.repository
+package ru.my.cryptotracker.core.domain
 
 import ru.my.cryptotracker.core.model.GraphPoint
 

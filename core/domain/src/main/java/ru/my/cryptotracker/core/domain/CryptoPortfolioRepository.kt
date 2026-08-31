@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.model.repository
+package ru.my.cryptotracker.core.domain
 
 import kotlinx.coroutines.flow.Flow
 import ru.my.cryptotracker.core.model.DomainAsset
@@ -15,7 +15,12 @@ interface CryptoPortfolioRepository {
     /**
      * Записать факт новой сделки (купли/продажи)
      */
-    suspend fun addTransaction(coinId: String, amount: Double, purchasePrice: Double, timestamp: Long)
+    suspend fun addTransaction(
+        coinId: String,
+        amount: Double,
+        purchasePrice: Double,
+        timestamp: Long
+    )
 
     /**
      * Удалить ошибочную транзакцию из истории

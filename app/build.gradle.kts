@@ -85,6 +85,7 @@ protobuf {
 
 dependencies {
     implementation(project(":core:model"))
+    implementation(project(":core:domain"))
     // Базовые Android зависимости
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

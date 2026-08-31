@@ -1,7 +1,7 @@
 package ru.my.cryptotracker.usecase.portfolio
 
 import jakarta.inject.Inject
-import ru.my.cryptotracker.model.repository.CryptoPortfolioRepository
+import ru.my.cryptotracker.core.domain.CryptoPortfolioRepository
 
 class DeleteTransactionUseCase @Inject constructor(
     private val portfolioRepository: CryptoPortfolioRepository

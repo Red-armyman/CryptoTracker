@@ -4,8 +4,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import ru.my.cryptotracker.core.model.PortfolioAsset
 import ru.my.cryptotracker.core.model.PortfolioOverview
-import ru.my.cryptotracker.model.repository.CryptoMarketRepository
-import ru.my.cryptotracker.model.repository.CryptoPortfolioRepository
+import ru.my.cryptotracker.core.domain.CryptoMarketRepository
+import ru.my.cryptotracker.core.domain.CryptoPortfolioRepository
 import ru.my.cryptotracker.model.security.EncryptedPreferencesManager
 import javax.inject.Inject
 

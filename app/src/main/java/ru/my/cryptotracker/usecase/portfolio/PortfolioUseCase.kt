@@ -1,7 +1,7 @@
 package ru.my.cryptotracker.usecase.portfolio
 
 import kotlinx.coroutines.flow.first
-import ru.my.cryptotracker.model.repository.CryptoPortfolioRepository
+import ru.my.cryptotracker.core.domain.CryptoPortfolioRepository
 import ru.my.cryptotracker.model.security.EncryptedPreferencesManager
 import javax.inject.Inject
 
