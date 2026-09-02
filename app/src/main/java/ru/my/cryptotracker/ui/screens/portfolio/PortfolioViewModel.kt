@@ -16,10 +16,10 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import ru.my.cryptotracker.R
-import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
 import ru.my.cryptotracker.di.IODispatcher
 import ru.my.cryptotracker.model.mappers.toPortfolioAssetUiModel
 import ru.my.cryptotracker.model.mappers.toCoinUiModel
+import ru.my.cryptotracker.core.domain.security.SecurePreferencesRepository
 import ru.my.cryptotracker.ui.screens.portfolio.reducer.PortfolioReducer
 import ru.my.cryptotracker.ui.util.UiText
 import ru.my.cryptotracker.usecase.portfolio.GetPortfolioOverviewUseCase
@@ -30,7 +30,7 @@ import javax.inject.Inject
 class PortfolioViewModel @Inject constructor(
     getPortfolioOverviewUseCase: GetPortfolioOverviewUseCase,
     private val portfolioUseCase: PortfolioUseCase,
-    securityManager: EncryptedPreferencesManager,
+    securityRepository: SecurePreferencesRepository,
     @param:IODispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
@@ -42,7 +42,7 @@ class PortfolioViewModel @Inject constructor(
 
     val uiState: StateFlow<PortfolioUiState> = combine(
         getPortfolioOverviewUseCase(),
-        securityManager.securePreferences
+        securityRepository.securePreferences
     ) { overview, securePrefs ->
 
         val assets = overview.assets

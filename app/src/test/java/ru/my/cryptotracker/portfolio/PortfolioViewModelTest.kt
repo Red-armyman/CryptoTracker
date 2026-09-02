@@ -7,17 +7,21 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.*
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestCoroutineScheduler
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
+import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
 import ru.my.cryptotracker.core.model.PortfolioOverview
+import ru.my.cryptotracker.core.model.SecurePreferences
 import ru.my.cryptotracker.model.entities.CoinUiModel
 import ru.my.cryptotracker.model.entities.PortfolioAssetUiModel
-import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
-import ru.my.cryptotracker.prefs.proto.PortfolioPreferences
 import ru.my.cryptotracker.ui.screens.portfolio.PortfolioUiState
 import ru.my.cryptotracker.ui.screens.portfolio.PortfolioViewModel
 import ru.my.cryptotracker.usecase.portfolio.GetPortfolioOverviewUseCase
@@ -65,13 +69,13 @@ class PortfolioViewModelTest {
             every {
                 securityManager.securePreferences
             } returns flowOf(
-                PortfolioPreferences.getDefaultInstance()
+                SecurePreferences()
             )
 
             viewModel = PortfolioViewModel(
                 getPortfolioOverviewUseCase = getPortfolioOverviewUseCase,
                 portfolioUseCase = portfolioUseCase,
-                securityManager = securityManager,
+                securityRepository = securityManager,
                 ioDispatcher = testDispatcher
             )
 

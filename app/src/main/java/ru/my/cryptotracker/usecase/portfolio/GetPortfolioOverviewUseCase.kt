@@ -6,7 +6,7 @@ import ru.my.cryptotracker.core.model.PortfolioAsset
 import ru.my.cryptotracker.core.model.PortfolioOverview
 import ru.my.cryptotracker.core.domain.repository.CryptoMarketRepository
 import ru.my.cryptotracker.core.domain.repository.CryptoPortfolioRepository
-import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
+import ru.my.cryptotracker.core.domain.security.SecurePreferencesRepository
 import javax.inject.Inject
 
 /**
@@ -16,7 +16,7 @@ import javax.inject.Inject
 class GetPortfolioOverviewUseCase @Inject constructor(
     private val portfolioRepository: CryptoPortfolioRepository,
     private val marketRepository: CryptoMarketRepository,
-    private val securityManager: EncryptedPreferencesManager
+    private val securityRepository: SecurePreferencesRepository
 ) {
 
     operator fun invoke(): Flow<PortfolioOverview> {
@@ -26,7 +26,7 @@ class GetPortfolioOverviewUseCase @Inject constructor(
         ) { domainAssets, marketCoins ->
 
             if (domainAssets.isEmpty()) {
-                securityManager.saveSecureBalance(0.0)
+                securityRepository.saveSecureBalance(0.0)
 
                 return@combine PortfolioOverview(
                     assets = emptyList(),
@@ -74,7 +74,7 @@ class GetPortfolioOverviewUseCase @Inject constructor(
             val totalPnLPercent =
                 if (totalPortfolioInvestmentUsd > 0.0) (totalPnLUsd / totalPortfolioInvestmentUsd) * 100.0 else 0.0
 
-            securityManager.saveSecureBalance(totalPortfolioValueUsd)
+            securityRepository.saveSecureBalance(totalPortfolioValueUsd)
 
             PortfolioOverview(
                 assets = portfolioAssets,

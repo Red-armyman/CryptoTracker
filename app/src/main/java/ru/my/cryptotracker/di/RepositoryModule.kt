@@ -12,6 +12,8 @@ import ru.my.cryptotracker.core.data.repository.CryptoDashboardRepositoryImpl
 import ru.my.cryptotracker.core.data.repository.CryptoGraphRepositoryImpl
 import ru.my.cryptotracker.core.data.repository.CryptoMarketRepositoryImpl
 import ru.my.cryptotracker.core.data.repository.CryptoPortfolioRepositoryImpl
+import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
+import ru.my.cryptotracker.core.domain.security.SecurePreferencesRepository
 import javax.inject.Singleton
 
 @Module
@@ -40,4 +42,10 @@ abstract class RepositoryModule {
     abstract fun bindCryptoMarketRepository(
         impl: CryptoMarketRepositoryImpl
     ): CryptoMarketRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSecurePreferencesRepository(
+        impl: EncryptedPreferencesManager
+    ): SecurePreferencesRepository
 }
