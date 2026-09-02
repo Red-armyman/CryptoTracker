@@ -16,9 +16,10 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import ru.my.cryptotracker.R
-import ru.my.cryptotracker.model.mappers.toUiModel
-import ru.my.cryptotracker.model.security.EncryptedPreferencesManager
+import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
 import ru.my.cryptotracker.di.IODispatcher
+import ru.my.cryptotracker.model.mappers.toPortfolioAssetUiModel
+import ru.my.cryptotracker.model.mappers.toCoinUiModel
 import ru.my.cryptotracker.ui.screens.portfolio.reducer.PortfolioReducer
 import ru.my.cryptotracker.ui.util.UiText
 import ru.my.cryptotracker.usecase.portfolio.GetPortfolioOverviewUseCase
@@ -45,7 +46,7 @@ class PortfolioViewModel @Inject constructor(
     ) { overview, securePrefs ->
 
         val assets = overview.assets
-            .map { it.toUiModel() }
+            .map { it.toPortfolioAssetUiModel() }
             .toImmutableList()
 
         PortfolioReducer.reduce(
@@ -54,7 +55,7 @@ class PortfolioViewModel @Inject constructor(
                 PortfolioUiState.Success(
                     overview = overview, // Все данные портфеля, рассчитанные в UseCase
                     availableMarketCoins = overview.marketCoins
-                        .map { it.toUiModel() }
+                        .map { it.toCoinUiModel() }
                         .toImmutableList(),
                     assets = assets,
                     isBalanceHidden = securePrefs.isBalanceHidden

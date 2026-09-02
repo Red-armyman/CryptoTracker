@@ -15,9 +15,8 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import ru.my.cryptotracker.model.network.NetworkResult
-import ru.my.cryptotracker.model.entities.CoinUiModel
-import ru.my.cryptotracker.model.repository.CryptoDashboardRepository
+import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
+import ru.my.cryptotracker.core.model.MarketCoin
 import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardUiState
 import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardViewModel
 import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardEvent
@@ -33,15 +32,15 @@ class CryptoDashboardViewModelTest {
     private lateinit var viewModel: CryptoDashboardViewModel
 
     private val fakeCachedCoins = listOf(
-        CoinUiModel(id = "bitcoin", displayTicker = "BTC", displayPrice = "$65000.00"),
-        CoinUiModel(id = "ethereum", displayTicker = "ETH", displayPrice = "$3400.00")
+        MarketCoin(id = "bitcoin", symbol = "BTC", priceUsd = 65000.00, imageUrl = ""),
+        MarketCoin(id = "ethereum", symbol = "ETH", priceUsd = 3400.00, imageUrl = "")
     )
 
     @Before
     fun setUp() {
         Dispatchers.setMain(testDispatcher)
 
-        every { repository.listenLocalCoinsCache() } returns flowOf(NetworkResult.Success(fakeCachedCoins))
+        every { repository.listenLocalCoinsCache() } returns flowOf(fakeCachedCoins)
         every { repository.isDataStaleFlow } returns MutableStateFlow(false)
     }
 

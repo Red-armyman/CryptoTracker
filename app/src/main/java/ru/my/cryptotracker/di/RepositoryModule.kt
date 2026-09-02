@@ -4,14 +4,14 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ru.my.cryptotracker.model.repository.CryptoDashboardRepository
-import ru.my.cryptotracker.core.domain.CryptoGraphRepository
-import ru.my.cryptotracker.core.domain.CryptoMarketRepository
-import ru.my.cryptotracker.core.domain.CryptoPortfolioRepository
-import ru.my.cryptotracker.model.repository.CryptoDashboardRepositoryImpl
-import ru.my.cryptotracker.model.repository.CryptoGraphRepositoryImpl
-import ru.my.cryptotracker.model.repository.CryptoMarketRepositoryImpl
-import ru.my.cryptotracker.model.repository.CryptoPortfolioRepositoryImpl
+import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
+import ru.my.cryptotracker.core.domain.repository.CryptoGraphRepository
+import ru.my.cryptotracker.core.domain.repository.CryptoMarketRepository
+import ru.my.cryptotracker.core.domain.repository.CryptoPortfolioRepository
+import ru.my.cryptotracker.core.data.repository.CryptoDashboardRepositoryImpl
+import ru.my.cryptotracker.core.data.repository.CryptoGraphRepositoryImpl
+import ru.my.cryptotracker.core.data.repository.CryptoMarketRepositoryImpl
+import ru.my.cryptotracker.core.data.repository.CryptoPortfolioRepositoryImpl
 import javax.inject.Singleton
 
 @Module

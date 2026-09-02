@@ -26,3 +26,4 @@ rootProject.name = "CryptoTracker"
 include(":app")
 include(":core:model")
 include(":core:domain")
+include(":core:data")

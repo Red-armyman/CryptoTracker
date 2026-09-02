@@ -4,7 +4,7 @@ import ru.my.cryptotracker.core.model.PortfolioAsset
 import ru.my.cryptotracker.model.entities.PortfolioAssetUiModel
 
 
-fun PortfolioAsset.toUiModel(): PortfolioAssetUiModel {
+fun PortfolioAsset.toPortfolioAssetUiModel(): PortfolioAssetUiModel {
     return PortfolioAssetUiModel(
         coinId = coinId,
         displayTicker = displayTicker,

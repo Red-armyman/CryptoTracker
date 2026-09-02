@@ -7,9 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import ru.my.cryptotracker.model.database.CryptoDatabase
-import ru.my.cryptotracker.model.database.dao.CoinDao
-import ru.my.cryptotracker.model.database.dao.PortfolioDao
+import ru.my.cryptotracker.core.data.database.CryptoDatabase
+import ru.my.cryptotracker.core.data.database.dao.CoinDao
+import ru.my.cryptotracker.core.data.database.dao.PortfolioDao
 import javax.inject.Singleton
 
 @Module

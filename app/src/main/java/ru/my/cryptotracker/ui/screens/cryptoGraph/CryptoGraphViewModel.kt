@@ -16,9 +16,9 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.stateIn
-import ru.my.cryptotracker.model.mappers.toGraphUiModelsList
+import ru.my.cryptotracker.model.mappers.toGraphPointUiModelList
 import ru.my.cryptotracker.di.IODispatcher
-import ru.my.cryptotracker.extensions.retryWithBackoff
+import ru.my.cryptotracker.core.data.extensions.retryWithBackoff
 import ru.my.cryptotracker.ui.navgraphs.MainScreens
 import ru.my.cryptotracker.usecase.cryptoGraph.LoadCoinHistoryUseCase
 import timber.log.Timber
@@ -47,7 +47,7 @@ class CryptoGraphViewModel @Inject constructor(
 
                 Timber.tag("CryptoNav").d("GraphViewModel: Запрос в сеть для монеты: $coinId")
                 val domainPoints = loadCoinHistoryUseCase(coinId = coinId)
-                val uiPoints = domainPoints.toGraphUiModelsList().toImmutableList()
+                val uiPoints = domainPoints.toGraphPointUiModelList().toImmutableList()
 
                 emit(CryptoGraphUiState(coinId = coinId, graphState = GraphUiState.Success(points = uiPoints)))
             }

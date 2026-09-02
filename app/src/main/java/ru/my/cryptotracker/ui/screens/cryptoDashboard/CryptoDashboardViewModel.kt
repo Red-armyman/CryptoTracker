@@ -14,21 +14,22 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import ru.my.cryptotracker.R
-import ru.my.cryptotracker.model.network.NetworkResult
+import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
 import ru.my.cryptotracker.di.IODispatcher
-import ru.my.cryptotracker.model.repository.CryptoDashboardRepository
+import ru.my.cryptotracker.model.mappers.toCoinUiModel
 import ru.my.cryptotracker.ui.screens.cryptoDashboard.reducer.CoinsReducer
+import ru.my.cryptotracker.ui.util.UiText
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.milliseconds
-import ru.my.cryptotracker.ui.util.UiText
 
 @HiltViewModel
 class CryptoDashboardViewModel @Inject constructor(
@@ -65,45 +66,44 @@ class CryptoDashboardViewModel @Inject constructor(
             .debounce(300.milliseconds)
             .flatMapLatest { query ->
                 repository.listenLocalCoinsCache()
-                    .combine(repository.isDataStaleFlow) { result, isDataStale ->
-                        when (result) {
-                            is NetworkResult.Loading ->
-                                CryptoDashboardUiState.Loading
-
-                            is NetworkResult.Error ->
-                                CoinsReducer.reduce(
-                                    oldState = CryptoDashboardUiState.Loading,
-                                    action = CoinsAction.NetworkErrorOccurred(result.message)
-                                )
-
-                            is NetworkResult.Success -> {
-                                val filteredList = result.data
-                                    .filter { coin ->
-                                        query.isEmpty() ||
-                                                coin.displayTicker.contains(
-                                                    query,
-                                                    ignoreCase = true
-                                                ) ||
-                                                coin.id.contains(
-                                                    query,
-                                                    ignoreCase = true
-                                                )
-                                    }
-                                    .toImmutableList()
-
-                                CoinsReducer.reduce(
-                                    oldState = CryptoDashboardUiState.Success(
-                                        coinsList = filteredList,
-                                        isOffline = isDataStale
-                                    ),
-                                    action = CoinsAction.CacheUpdated(
-                                        cachedCoins = filteredList
-                                    )
-                                )
+                    .map { marketCoins ->
+                        val filteredList = marketCoins
+                            .filter { coin ->
+                                query.isEmpty() ||
+                                        coin.symbol.contains(query, ignoreCase = true) ||
+                                        coin.id.contains(query, ignoreCase = true)
                             }
+                            .map { it.toCoinUiModel() }
+                            .toImmutableList()
+
+                        CoinsReducer.reduce(
+                            oldState = CryptoDashboardUiState.Success(
+                                coinsList = filteredList,
+                                isOffline = false
+                            ),
+                            action = CoinsAction.CacheUpdated(
+                                cachedCoins = filteredList
+                            )
+                        )
+                    }
+                    .catch { error ->
+                        emit(
+                            CoinsReducer.reduce(
+                                oldState = CryptoDashboardUiState.Loading,
+                                action = CoinsAction.NetworkErrorOccurred(
+                                    error.message.orEmpty()
+                                )
+                            )
+                        )
+                    }
+                    .combine(repository.isDataStaleFlow) { state, isDataStale ->
+                        when (state) {
+                            is CryptoDashboardUiState.Success ->
+                                state.copy(isOffline = isDataStale)
+
+                            else -> state
                         }
                     }
-                    .distinctUntilChanged()
             }
             .flowOn(ioDispatcher)
             .stateIn(

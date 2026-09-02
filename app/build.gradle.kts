@@ -5,7 +5,6 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.room3)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.protobuf)
 }
 
 room3 {
@@ -14,14 +13,12 @@ room3 {
 
 android {
     namespace = "ru.my.cryptotracker"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "ru.my.cryptotracker"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
     }
@@ -63,29 +60,11 @@ android {
     }
 }
 
-protobuf {
-    protoc {
-        val version = libs.versions.protobuf.asProvider().get()
-        artifact = "com.google.protobuf:protoc:$version"
-    }
-    generateProtoTasks {
-        all().forEach { task ->
-            // Включаем поддержку кэширования сборки для Protobuf
-            task.outputs.cacheIf { true }
-
-            task.builtins {
-                create("java") {
-                    option("lite")
-                    outputSubDir = ""
-                }
-            }
-        }
-    }
-}
 
 dependencies {
     implementation(project(":core:model"))
     implementation(project(":core:domain"))
+    implementation(project(":core:data"))
     // Базовые Android зависимости
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
