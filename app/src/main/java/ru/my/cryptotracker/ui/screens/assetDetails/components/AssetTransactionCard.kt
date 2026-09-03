@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import ru.my.cryptotracker.R
 import ru.my.cryptotracker.core.model.PortfolioTransaction
-import ru.my.cryptotracker.ui.theme.CryptoTrackerTheme
+import ru.my.cryptotracker.core.designsystem.theme.CryptoTrackerTheme
 import java.util.Locale
 
 @Composable

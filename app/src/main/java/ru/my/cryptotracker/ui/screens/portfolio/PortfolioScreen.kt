@@ -57,7 +57,7 @@ import ru.my.cryptotracker.ui.screens.portfolio.components.AddTransactionBottomS
 import ru.my.cryptotracker.ui.screens.portfolio.components.AssetRow
 import ru.my.cryptotracker.ui.screens.portfolio.components.EmptyPortfolioStub
 import ru.my.cryptotracker.ui.screens.portfolio.components.PortfolioHeader
-import ru.my.cryptotracker.ui.theme.CryptoTrackerTheme
+import ru.my.cryptotracker.core.designsystem.theme.CryptoTrackerTheme
 import timber.log.Timber
 import kotlin.math.abs
 

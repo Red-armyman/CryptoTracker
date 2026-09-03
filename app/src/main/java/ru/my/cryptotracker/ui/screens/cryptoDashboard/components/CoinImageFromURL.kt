@@ -21,7 +21,7 @@ import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest.Builder
 import coil3.request.crossfade
 import ru.my.cryptotracker.R
-import ru.my.cryptotracker.ui.theme.CryptoTrackerTheme
+import ru.my.cryptotracker.core.designsystem.theme.CryptoTrackerTheme
 
 @Composable
 fun CoinImageFromURL(

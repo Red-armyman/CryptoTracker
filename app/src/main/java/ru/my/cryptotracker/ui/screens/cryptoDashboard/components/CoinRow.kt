@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import ru.my.cryptotracker.model.entities.CoinUiModel
 import ru.my.cryptotracker.model.utils.LogCompositionBranch
-import ru.my.cryptotracker.ui.theme.CryptoTrackerTheme
+import ru.my.cryptotracker.core.designsystem.theme.CryptoTrackerTheme
 
 @Composable
 fun CoinRow(

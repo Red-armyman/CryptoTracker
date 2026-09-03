@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.ui.theme
+package ru.my.cryptotracker.core.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
