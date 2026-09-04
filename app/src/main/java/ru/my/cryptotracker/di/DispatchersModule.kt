@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import ru.my.cryptotracker.core.common.di.IODispatcher
 
 @Module
 @InstallIn(SingletonComponent::class)

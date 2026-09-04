@@ -1,6 +1,6 @@
 package ru.my.cryptotracker.ui.screens.portfolio
 
-import ru.my.cryptotracker.ui.util.UiText
+import ru.my.cryptotracker.core.ui.text.UiText
 
 sealed interface PortfolioEffect {
     data class ShowSnackbar(val message: UiText) : PortfolioEffect

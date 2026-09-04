@@ -66,6 +66,10 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:common"))
+    implementation(project(":core:ui"))
+    implementation(project(":feature:dashboard"))
+
     // Базовые Android зависимости
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

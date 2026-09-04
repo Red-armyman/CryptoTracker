@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import ru.my.cryptotracker.ui.screens.assetDetails.AssetDetailsScreen
-import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardScreen
+import ru.my.cryptotracker.feature.dashboard.ui.CryptoDashboardScreen
 import ru.my.cryptotracker.ui.screens.cryptoGraph.CryptoGraphScreen
 import ru.my.cryptotracker.ui.screens.portfolio.PortfolioScreen
 

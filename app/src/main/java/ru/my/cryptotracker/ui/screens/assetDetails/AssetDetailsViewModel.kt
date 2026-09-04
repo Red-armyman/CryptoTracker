@@ -10,15 +10,21 @@ import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import ru.my.cryptotracker.R
-import ru.my.cryptotracker.di.IODispatcher
+import ru.my.cryptotracker.core.common.di.IODispatcher
+import ru.my.cryptotracker.core.ui.text.UiText
 import ru.my.cryptotracker.ui.navgraphs.MainScreens
 import ru.my.cryptotracker.ui.screens.portfolio.PortfolioEffect
-import ru.my.cryptotracker.ui.util.UiText
-import ru.my.cryptotracker.usecase.portfolio.DeleteTransactionUseCase
 import ru.my.cryptotracker.usecase.assetDetails.GetTransactionHistoryUseCase
+import ru.my.cryptotracker.usecase.portfolio.DeleteTransactionUseCase
 import javax.inject.Inject
 
 @HiltViewModel

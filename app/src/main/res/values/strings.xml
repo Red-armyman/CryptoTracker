@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">CryptoTracker</string>
 
-    <string name="dashboard_title">Дашборд CoinGecko</string>
-    <string name="dashboard_search_label">Поиск криптовалюты (например, SOL)</string>
-
     <!-- Экран Портфеля -->
     <string name="portfolio_title">Мой Портфель</string>
     <string name="portfolio_empty_stub">Ваш портфель пока пуст. Добавьте первую сделку!</string>
@@ -30,12 +27,8 @@
     <string name="snackbar_transaction_deleted">Транзакция успешно удалена</string>
     <string name="snackbar_transaction_delete_error">Ошибка удаления транзакции</string>
     <string name="snackbar_error_visibility">Не удалось изменить видимость баланса</string>
-    <string name="snackbar_coins_refresh_error">Ошибка обновления котировок монет</string>
 
     <string name="error_unknown">Неизвестная ошибка</string>
-
-    <string name="empty_coins_title">Список монет пуст</string>
-    <string name="empty_coins_description">Проверьте подключение к сети или VPN.\nЛибо измените поисковый запрос.</string>
 
     <string name="empty_portfolio_title">Портфель пуст</string>
     <string name="empty_portfolio_description">Добавьте свою первую сделку, чтобы начать отслеживать баланс и живую аналитику активов.</string>
@@ -51,8 +44,6 @@
     <string name="graph_btn_retry">Попробовать снова</string>
     <string name="graph_screen_title">График: %1$s</string>
     <string name="graph_screen_btn_back">Назад к списку</string>
-
-    <string name="offline_banner_message">Отображаются устаревшие оффлайн-данные</string>
 
     <!-- 📜 СТРОКИ ДЛЯ ЭКРАНА ДЕТАЛИЗАЦИИ ТРАНЗАКЦИЙ АКТИВА -->
     <string name="asset_details_title">История сделок: %1$s</string>

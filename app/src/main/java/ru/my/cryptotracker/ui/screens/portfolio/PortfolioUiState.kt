@@ -2,9 +2,9 @@ package ru.my.cryptotracker.ui.screens.portfolio
 
 import kotlinx.collections.immutable.ImmutableList
 import ru.my.cryptotracker.core.model.PortfolioOverview
-import ru.my.cryptotracker.model.entities.CoinUiModel
+import ru.my.cryptotracker.core.ui.model.CoinUiModel
 import ru.my.cryptotracker.model.entities.PortfolioAssetUiModel
-import ru.my.cryptotracker.ui.util.UiText
+import ru.my.cryptotracker.core.ui.text.UiText
 
 sealed interface PortfolioUiState {
 

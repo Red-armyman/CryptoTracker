@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.stateIn
 import ru.my.cryptotracker.model.mappers.toGraphPointUiModelList
-import ru.my.cryptotracker.di.IODispatcher
+import ru.my.cryptotracker.core.common.di.IODispatcher
 import ru.my.cryptotracker.core.data.extensions.retryWithBackoff
 import ru.my.cryptotracker.ui.navgraphs.MainScreens
 import ru.my.cryptotracker.usecase.cryptoGraph.LoadCoinHistoryUseCase

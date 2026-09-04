@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
-import ru.my.cryptotracker.model.entities.CoinUiModel
+import ru.my.cryptotracker.core.ui.model.CoinUiModel
 import java.util.Locale
 import ru.my.cryptotracker.R
 

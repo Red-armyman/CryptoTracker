@@ -16,12 +16,12 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import ru.my.cryptotracker.R
-import ru.my.cryptotracker.di.IODispatcher
+import ru.my.cryptotracker.core.common.di.IODispatcher
 import ru.my.cryptotracker.model.mappers.toPortfolioAssetUiModel
-import ru.my.cryptotracker.model.mappers.toCoinUiModel
+import ru.my.cryptotracker.core.ui.mapper.toCoinUiModel
 import ru.my.cryptotracker.core.domain.security.SecurePreferencesRepository
 import ru.my.cryptotracker.ui.screens.portfolio.reducer.PortfolioReducer
-import ru.my.cryptotracker.ui.util.UiText
+import ru.my.cryptotracker.core.ui.text.UiText
 import ru.my.cryptotracker.usecase.portfolio.GetPortfolioOverviewUseCase
 import ru.my.cryptotracker.usecase.portfolio.PortfolioUseCase
 import javax.inject.Inject
