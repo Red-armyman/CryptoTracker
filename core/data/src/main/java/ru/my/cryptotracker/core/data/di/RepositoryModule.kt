@@ -1,18 +1,18 @@
-package ru.my.cryptotracker.di
+package ru.my.cryptotracker.core.data.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
-import ru.my.cryptotracker.core.domain.repository.CryptoGraphRepository
-import ru.my.cryptotracker.core.domain.repository.CryptoMarketRepository
-import ru.my.cryptotracker.core.domain.repository.CryptoPortfolioRepository
 import ru.my.cryptotracker.core.data.repository.CryptoDashboardRepositoryImpl
 import ru.my.cryptotracker.core.data.repository.CryptoGraphRepositoryImpl
 import ru.my.cryptotracker.core.data.repository.CryptoMarketRepositoryImpl
 import ru.my.cryptotracker.core.data.repository.CryptoPortfolioRepositoryImpl
 import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
+import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
+import ru.my.cryptotracker.core.domain.repository.CryptoGraphRepository
+import ru.my.cryptotracker.core.domain.repository.CryptoMarketRepository
+import ru.my.cryptotracker.core.domain.repository.CryptoPortfolioRepository
 import ru.my.cryptotracker.core.domain.security.SecurePreferencesRepository
 import javax.inject.Singleton
 

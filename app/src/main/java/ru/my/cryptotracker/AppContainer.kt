@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.ui.app
+package ru.my.cryptotracker
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -29,7 +29,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import ru.my.cryptotracker.R
 import ru.my.cryptotracker.core.common.navigation.MainScreens
 
 @Composable

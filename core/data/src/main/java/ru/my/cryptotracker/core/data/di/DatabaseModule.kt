@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.di
+package ru.my.cryptotracker.core.data.di
 
 import android.content.Context
 import androidx.room3.Room

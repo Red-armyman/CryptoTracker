@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.ui.app
+package ru.my.cryptotracker
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController

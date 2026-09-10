@@ -1,4 +1,4 @@
-package ru.my.cryptotracker.di
+package ru.my.cryptotracker.core.data.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -13,8 +13,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import ru.my.cryptotracker.core.data.security.PortfolioPrefsSerializer
 import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
+import ru.my.cryptotracker.core.data.security.PortfolioPrefsSerializer
 import ru.my.cryptotracker.prefs.proto.PortfolioPreferences
 import javax.inject.Singleton
 
