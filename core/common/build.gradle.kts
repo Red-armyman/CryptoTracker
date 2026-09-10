@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -20,4 +21,5 @@ android {
 
 dependencies {
     implementation(libs.hilt.android)
+    implementation(libs.kotlinx.serialization.json)
 }

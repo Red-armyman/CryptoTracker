@@ -17,9 +17,9 @@ import org.junit.Before
 import org.junit.Test
 import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
 import ru.my.cryptotracker.core.model.MarketCoin
-import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardUiState
-import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardViewModel
-import ru.my.cryptotracker.ui.screens.cryptoDashboard.CryptoDashboardEvent
+import ru.my.cryptotracker.feature.dashboard.ui.CryptoDashboardEvent
+import ru.my.cryptotracker.feature.dashboard.ui.CryptoDashboardUiState
+import ru.my.cryptotracker.feature.dashboard.ui.CryptoDashboardViewModel
 import kotlin.time.Duration.Companion.milliseconds
 
 @OptIn(ExperimentalCoroutinesApi::class)

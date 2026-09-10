@@ -1,12 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "ru.my.cryptotracker.core.domain"
+    namespace = "ru.my.cryptotracker.core.network"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
@@ -20,12 +19,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:model"))
+    implementation(libs.timber)
+    implementation(libs.bundles.network)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    // Hilt DI
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-
-    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
 }

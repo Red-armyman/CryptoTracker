@@ -1,0 +1,54 @@
+<resources>
+
+    <!-- Экран Портфеля -->
+    <string name="portfolio_title">Мой Портфель</string>
+    <string name="portfolio_empty_stub">Ваш портфель пока пуст. Добавьте первую сделку!</string>
+    <string name="portfolio_action_delete">Удалить</string>
+    <string name="portfolio_sticky_offline">Режим оффлайн. Отображаются закэшированные данные.</string>
+    <string name="portfolio_waiting_initialization">Ожидание инициализации портфеля…</string>
+    <string name="portfolio_header_total_title">Общий баланс</string>
+
+    <!-- Шторка добавления транзакции -->
+    <string name="bottom_sheet_add_title">Добавление транзакции</string>
+    <string name="bottom_sheet_crypto_label">Криптовалюта</string>
+    <string name="bottom_sheet_select_coin_placeholder">Выберите монету</string>
+    <string name="bottom_sheet_amount_label">Количество (например, 0.05)</string>
+    <string name="bottom_sheet_price_label">Цена покупки за 1 шт. ($)</string>
+    <string name="bottom_sheet_btn_save">Сохранить сделку</string>
+
+    <!-- Снэкбары и Уведомления (ViewModel эффекты) -->
+    <string name="snackbar_transaction_added">Сделка успешно добавлена!</string>
+    <string name="snackbar_transaction_add_error">Ошибка добавления сделки</string>
+    <string name="snackbar_asset_deleted">Актив %1$s полностью удален</string>
+    <string name="snackbar_asset_delete_error">Ошибка удаления актива</string>
+    <string name="snackbar_portfolio_cleared">Портфель полностью очищен</string>
+    <string name="snackbar_portfolio_clear_error">Ошибка сброса данных</string>
+    <string name="snackbar_transaction_deleted">Транзакция успешно удалена</string>
+    <string name="snackbar_transaction_delete_error">Ошибка удаления транзакции</string>
+    <string name="snackbar_error_visibility">Не удалось изменить видимость баланса</string>
+
+    <string name="error_unknown">Неизвестная ошибка</string>
+
+    <string name="empty_portfolio_title">Портфель пуст</string>
+    <string name="empty_portfolio_description">Добавьте свою первую сделку, чтобы начать отслеживать баланс и живую аналитику активов.</string>
+    <string name="empty_portfolio_btn_add">Добавить сделку</string>
+
+    <string name="portfolio_hidden_balance">•••• $</string>
+    <string name="portfolio_hidden_pnl">•••• $ (•••%%)</string>
+    <string name="portfolio_hidden_asset_amount">•••• %1$s</string>
+    <string name="portfolio_hidden_percent">•••%</string>
+    <string name="portfolio_hidden_asset_pnl">•••%%</string>
+
+    <string name="graph_state_empty">Нет данных для построения графика</string>
+    <string name="graph_btn_retry">Попробовать снова</string>
+    <string name="graph_screen_title">График: %1$s</string>
+    <string name="graph_screen_btn_back">Назад к списку</string>
+
+    <!-- 📜 СТРОКИ ДЛЯ ЭКРАНА ДЕТАЛИЗАЦИИ ТРАНЗАКЦИЙ АКТИВА -->
+    <string name="asset_details_title">История сделок: %1$s</string>
+    <string name="asset_details_empty">По этой монете еще не было сделок</string>
+    <string name="asset_details_amount">Количество: %1$s %2$s</string>
+    <string name="asset_details_price">Цена покупки: $%1$s</string>
+    <string name="asset_details_error">Не удалось загрузить историю сделок</string>
+
+</resources>

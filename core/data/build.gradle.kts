@@ -10,7 +10,7 @@ plugins {
 android {
     namespace = "ru.my.cryptotracker.core.data"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
@@ -53,6 +53,7 @@ protobuf {
 dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
+    implementation(project(":core:network"))
 
    // Базовые Android зависимости
     implementation(libs.timber)

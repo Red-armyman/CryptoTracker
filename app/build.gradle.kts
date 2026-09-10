@@ -69,6 +69,7 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
     implementation(project(":feature:dashboard"))
+    implementation(project(":feature:portfolio"))
 
     // Базовые Android зависимости
     implementation(libs.androidx.core.ktx)

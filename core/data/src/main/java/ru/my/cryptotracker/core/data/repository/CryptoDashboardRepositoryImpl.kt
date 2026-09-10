@@ -11,23 +11,19 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-
 import ru.my.cryptotracker.core.data.database.CryptoDatabase
-import ru.my.cryptotracker.core.data.extensions.retryWithBackoff
-import ru.my.cryptotracker.core.data.network.CryptoApiService
 import ru.my.cryptotracker.core.data.mappers.toCoinDbList
-
+import ru.my.cryptotracker.core.data.mappers.toMarketCoinList
+import ru.my.cryptotracker.core.data.network.CryptoApiService
+import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
+import ru.my.cryptotracker.core.model.MarketCoin
+import ru.my.cryptotracker.core.network.extensions.retryWithBackoff
+import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.time.Duration.Companion.milliseconds
-
-import ru.my.cryptotracker.core.model.MarketCoin
-import ru.my.cryptotracker.core.data.mappers.toMarketCoinList
-import ru.my.cryptotracker.core.domain.repository.CryptoDashboardRepository
-
-import timber.log.Timber
 
 @Singleton
 class CryptoDashboardRepositoryImpl @Inject constructor(

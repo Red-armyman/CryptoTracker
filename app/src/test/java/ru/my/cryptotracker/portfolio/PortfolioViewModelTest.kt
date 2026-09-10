@@ -20,12 +20,12 @@ import org.junit.Test
 import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
 import ru.my.cryptotracker.core.model.PortfolioOverview
 import ru.my.cryptotracker.core.model.SecurePreferences
-import ru.my.cryptotracker.model.entities.CoinUiModel
-import ru.my.cryptotracker.model.entities.PortfolioAssetUiModel
-import ru.my.cryptotracker.ui.screens.portfolio.PortfolioUiState
-import ru.my.cryptotracker.ui.screens.portfolio.PortfolioViewModel
-import ru.my.cryptotracker.usecase.portfolio.GetPortfolioOverviewUseCase
-import ru.my.cryptotracker.usecase.portfolio.PortfolioUseCase
+import ru.my.cryptotracker.core.domain.usecase.portfolio.GetPortfolioOverviewUseCase
+import ru.my.cryptotracker.core.domain.usecase.portfolio.PortfolioUseCase
+import ru.my.cryptotracker.core.ui.model.CoinUiModel
+import ru.my.cryptotracker.feature.portfolio.model.PortfolioAssetUiModel
+import ru.my.cryptotracker.feature.portfolio.screens.portfolio.PortfolioUiState
+import ru.my.cryptotracker.feature.portfolio.screens.portfolio.PortfolioViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class PortfolioViewModelTest {
