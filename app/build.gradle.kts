@@ -80,8 +80,6 @@ dependencies {
     implementation(libs.kotlinx.collections.immutable)
 
     implementation(libs.bundles.compose.ui)
-    implementation(libs.bundles.network)
-    implementation(libs.bundles.coil)
 
     // Hilt DI
     implementation(libs.hilt.android)
