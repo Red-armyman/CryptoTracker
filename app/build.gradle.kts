@@ -3,27 +3,19 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.room3)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.protobuf)
-}
-
-room3 {
-    schemaDirectory("$projectDir/schemas")
 }
 
 android {
     namespace = "ru.my.cryptotracker"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "ru.my.cryptotracker"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -63,56 +55,23 @@ android {
     }
 }
 
-protobuf {
-    protoc {
-        val version = libs.versions.protobuf.asProvider().get()
-        artifact = "com.google.protobuf:protoc:$version"
-    }
-    generateProtoTasks {
-        all().forEach { task ->
-            // Включаем поддержку кэширования сборки для Protobuf
-            task.outputs.cacheIf { true }
-
-            task.builtins {
-                create("java") {
-                    option("lite")
-                    outputSubDir = ""
-                }
-            }
-        }
-    }
-}
 
 dependencies {
+    implementation(project(":core:data"))
+    implementation(project(":core:designsystem"))
+    implementation(project(":core:common"))
+    implementation(project(":feature:dashboard"))
+    implementation(project(":feature:portfolio"))
+
     // Базовые Android зависимости
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
     implementation(libs.timber)
-    implementation(libs.kotlinx.collections.immutable)
-
-    // Твои бандлы из TOML (без дубликатов в коде)
     implementation(libs.bundles.compose.ui)
-    implementation(libs.bundles.network)
-    implementation(libs.bundles.coil)
 
     // Hilt DI
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
-
-    // Room 3
-    implementation(libs.room3)
-    ksp(libs.room3.compiler)
-
-    // DataStore и безопасность (Строго через точки!)
-    implementation(libs.androidx.datastore.core)
-    implementation(libs.protobuf)
-    implementation(libs.google.crypto.tink)
-
-    // Инструменты отладки
-    debugImplementation(libs.androidx.compose.ui.tooling)
     
     testImplementation(libs.bundles.unit.tests)
 

@@ -1,0 +1,10 @@
+<resources>
+    <string name="dashboard_title">Дашборд CoinGecko</string>
+    <string name="dashboard_search_label">Поиск криптовалюты (например, SOL)</string>
+
+    <string name="offline_banner_message">Отображаются устаревшие оффлайн-данные</string>
+    <string name="snackbar_coins_refresh_error">Ошибка обновления котировок монет</string>
+
+    <string name="empty_coins_title">Список монет пуст</string>
+    <string name="empty_coins_description">Проверьте подключение к сети или VPN.\nЛибо измените поисковый запрос.</string>
+</resources>
