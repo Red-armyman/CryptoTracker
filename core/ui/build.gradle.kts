@@ -22,7 +22,5 @@ dependencies {
     implementation(project(":core:model"))
 
     implementation(libs.bundles.compose.ui)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlinx.collections.immutable)
     testImplementation(libs.junit)
 }

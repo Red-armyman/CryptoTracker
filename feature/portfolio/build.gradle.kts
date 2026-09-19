@@ -30,6 +30,7 @@ dependencies {
     implementation(project(":core:network"))
 
     implementation(libs.bundles.compose.ui)
+    implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.kotlinx.collections.immutable)
 
     implementation(libs.hilt.android)

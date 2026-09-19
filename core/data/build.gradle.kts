@@ -59,7 +59,6 @@ dependencies {
     implementation(libs.timber)
 
     implementation(libs.bundles.network)
-    implementation(libs.androidx.annotation.experimental)
 
     // Hilt DI
     implementation(libs.hilt.android)

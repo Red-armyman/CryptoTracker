@@ -21,7 +21,6 @@ android {
 
 dependencies {
     implementation(project(":core:model"))
-    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     // Hilt DI
     implementation(libs.hilt.android)

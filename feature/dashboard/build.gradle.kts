@@ -29,9 +29,7 @@ dependencies {
     implementation(project(":core:ui"))
 
     implementation(libs.bundles.compose.ui)
-
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.kotlinx.collections.immutable)
 
     // Hilt DI
