@@ -72,8 +72,6 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
-    
-    testImplementation(libs.bundles.unit.tests)
 
     implementation(libs.androidx.core.splashscreen)
 }

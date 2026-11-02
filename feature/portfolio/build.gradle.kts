@@ -39,5 +39,5 @@ dependencies {
 
     implementation(libs.timber)
 
-    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.bundles.unit.tests)
 }
