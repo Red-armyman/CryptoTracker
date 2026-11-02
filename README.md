@@ -13,6 +13,12 @@
 - **Графики:** просмотр исторических данных о цене выбранной криптовалюты.
 - **Работа при сетевых ошибках:** локальный кэш котировок, индикация устаревших данных и повторные запросы с экспоненциальной задержкой.
 
+## Скриншоты приложения
+
+| Dashboard | AssetDetails | CryptoGraph | Portfolio |
+|:---:|:---:|:---:|:---:|
+| <img src="screenshots/dashboard.jpg" width="180" alt="Dashboard"> | <img src="screenshots/asset_details.jpg" width="180" alt="AssetDetails"> | <img src="screenshots/crypto_graph.jpg" width="180" alt="CryptoGraph"> | <img src="screenshots/portfolio.jpg" width="180" alt="Portfolio"> |
+
 ## Технологии
 
 | Область | Технологии |
