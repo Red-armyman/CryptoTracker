@@ -1,8 +1,10 @@
-package ru.my.cryptotracker.portfolio
+package ru.my.cryptotracker.feature.portfolio
 
 import app.cash.turbine.test
 import io.mockk.every
 import io.mockk.mockk
+import junit.framework.TestCase.assertEquals
+import junit.framework.TestCase.assertTrue
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -13,19 +15,17 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import ru.my.cryptotracker.core.data.security.EncryptedPreferencesManager
-import ru.my.cryptotracker.core.model.PortfolioOverview
-import ru.my.cryptotracker.core.model.SecurePreferences
 import ru.my.cryptotracker.core.domain.usecase.portfolio.GetPortfolioOverviewUseCase
 import ru.my.cryptotracker.core.domain.usecase.portfolio.PortfolioUseCase
+import ru.my.cryptotracker.core.model.PortfolioOverview
+import ru.my.cryptotracker.core.model.SecurePreferences
 import ru.my.cryptotracker.core.ui.model.CoinUiModel
 import ru.my.cryptotracker.feature.portfolio.model.PortfolioAssetUiModel
 import ru.my.cryptotracker.feature.portfolio.screens.portfolio.PortfolioUiState
 import ru.my.cryptotracker.feature.portfolio.screens.portfolio.PortfolioViewModel
+import ru.my.cryptotracker.core.domain.security.SecurePreferencesRepository
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class PortfolioViewModelTest {
@@ -34,7 +34,7 @@ class PortfolioViewModelTest {
     private val testDispatcher = StandardTestDispatcher(testScheduler)
 
     private val getPortfolioOverviewUseCase: GetPortfolioOverviewUseCase = mockk()
-    private val securityManager: EncryptedPreferencesManager = mockk()
+    private val securityRepository: SecurePreferencesRepository = mockk()
     private val portfolioUseCase: PortfolioUseCase = mockk()
 
     private lateinit var viewModel: PortfolioViewModel
@@ -67,7 +67,7 @@ class PortfolioViewModelTest {
             } returns flowOf(fakeDomainOverview)
 
             every {
-                securityManager.securePreferences
+                securityRepository.securePreferences
             } returns flowOf(
                 SecurePreferences()
             )
@@ -75,7 +75,7 @@ class PortfolioViewModelTest {
             viewModel = PortfolioViewModel(
                 getPortfolioOverviewUseCase = getPortfolioOverviewUseCase,
                 portfolioUseCase = portfolioUseCase,
-                securityRepository = securityManager,
+                securityRepository = securityRepository,
                 ioDispatcher = testDispatcher
             )
 

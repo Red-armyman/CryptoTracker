@@ -40,5 +40,5 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.bundles.coil)
 
-    testImplementation(libs.junit)
+    testImplementation(libs.bundles.unit.tests)
 }
