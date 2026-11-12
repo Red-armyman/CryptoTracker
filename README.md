@@ -24,7 +24,7 @@
 | Область | Технологии |
 | --- | --- |
 | Язык и UI | Kotlin, Jetpack Compose, Material 3 |
-| Архитектура | Clean Architecture, MVVM, многомодульная структура |
+| Архитектура | Clean Architecture, MVI, многомодульная структура |
 | Асинхронность | Coroutines, Flow, StateFlow |
 | Внедрение зависимостей | Hilt |
 | Сеть | Retrofit, OkHttp, Kotlinx Serialization, CoinGecko API |
